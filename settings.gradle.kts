@@ -1,2 +1,3 @@
 rootProject.name = "androidbaseproject"
-include ':app'
+include(":app")
+include(":api")

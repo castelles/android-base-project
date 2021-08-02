@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">androidbaseproject</string>
+<!--    <string name="app_name">androidbaseproject</string>-->
+    <string name="str_fetch">Fetch</string>
 </resources>

@@ -1,6 +1,6 @@
 object Versions {
     const val flowJvmVersion = "1.4.1"
-    const val buildGradleVersion = "4.2.2"
+    const val buildGradleVersion = "4.2.1"
     const val kotlinVersion = "1.5.10"
     const val coreKtxVersion = "1.6.0"
     const val appcompatVersion = "1.3.1"

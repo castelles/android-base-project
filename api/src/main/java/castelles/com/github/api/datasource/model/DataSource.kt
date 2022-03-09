@@ -50,11 +50,11 @@ open class DataSource(private val baseUrl: String = BuildConfig.BASE_URL) {
         response: Response<T>
     ): NetworkFetcher<T> = try {
             if (response.isSuccessful)
-                Success(response.body())
+                NetworkFetcher.Success(response.body())
             else
-                Error(ErrorHandler(response))
+                NetworkFetcher.Error(ErrorHandler(response))
         } catch (e: Exception) {
-            Error<Exception>(ErrorHandler(exception = e))
+            NetworkFetcher.Error<Exception>(ErrorHandler(exception = e))
         }
 
 }

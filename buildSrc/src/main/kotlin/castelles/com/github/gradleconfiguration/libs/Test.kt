@@ -5,9 +5,9 @@ object Test: DependencyContainer {
     const val junitAndroidXVersion = "1.1.3"
     const val espressoVersion = "3.4.0"
 
-    const val junit = "junit:junit:${Versions.junitVersion}"
-    const val junitAndroidX = "androidx.test.ext:junit:${Versions.junitAndroidXVersion}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
+    const val junit = "junit:junit:$junitVersion"
+    const val junitAndroidX = "androidx.test.ext:junit:$junitAndroidXVersion"
+    const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
 
     override val list: List<String>
         get() = listOf(

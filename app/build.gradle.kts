@@ -1,6 +1,12 @@
+import castelles.com.github.gradleconfiguration.extensions.implementationAll
+import castelles.com.github.gradleconfiguration.libs.Jetpack
+import castelles.com.github.gradleconfiguration.libs.Koin
+import castelles.com.github.gradleconfiguration.libs.Utils
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
     id("android-standard-settings")
 }
 
@@ -13,29 +19,8 @@ android {
 dependencies {
 
     implementation (project(":api"))
-
-//    implementation(Libraries.kotlinstdlib)
-//    implementation(Libraries.coreKtx)
-//    implementation(Libraries.appCompat)
-//    implementation(Libraries.materialDesign)
-//    implementation(Libraries.constraintLayout)
-//    testImplementation(Libraries.junit)
-//    androidTestImplementation(Libraries.junitAndroidX)
-//    androidTestImplementation(Libraries.espresso)
-
-//    implementation(Libraries.rxAndroid)
-//    implementation(Libraries.rxJava)
-//    implementation(Libraries.rxKotlin)
-
-    implementation(Libraries.navigationFragment)
-    implementation(Libraries.navigationUi)
-    implementation(Libraries.fragment)
-    implementation(Libraries.viewModelSavedState)
-
-    implementation(Libraries.koin)
-    implementation(Libraries.koinScope)
-    implementation(Libraries.koinViewModel)
-
-    implementation(Libraries.dimensSdp)
+    implementationAll(Jetpack.list)
+    implementationAll(Koin.list)
+    implementationAll(Utils.list)
 
 }

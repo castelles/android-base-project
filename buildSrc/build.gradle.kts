@@ -1,6 +1,7 @@
 import Build_gradle.InternalDep.buildGradle
 import Build_gradle.InternalDep.kotlinGradle
 import Build_gradle.InternalDep.navigationPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 object InternalDep {
     const val buildGradleVersion = "4.2.1"
@@ -17,6 +18,7 @@ object InternalDep {
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
+    kotlin("jvm") version "1.5.10"
 }
 
 gradlePlugin {
@@ -41,4 +43,13 @@ dependencies {
     implementation(kotlinGradle)
     implementation(navigationPlugin)
     implementation(InternalDep.quadrant_gradle_plugin)
+    implementation(kotlin("stdlib-jdk8"))
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }

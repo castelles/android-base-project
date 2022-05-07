@@ -2,6 +2,7 @@ package castelles.com.github.androidbaseproject.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import castelles.com.github.androidbaseproject.extension.safeEmit
 import castelles.com.github.androidbaseproject.viewmodel.state.State
 import castelles.com.github.api.model.UserResponse
 import castelles.com.github.api.repository.contract.UserRepository
@@ -14,7 +15,7 @@ class UserViewModel(
     private val repository: UserRepository
 ): ViewModel() {
 
-    private val _userFetcher = MutableStateFlow(State<UserResponse>())
+    private val _userFetcher = MutableStateFlow<State<UserResponse>?>(null)
     val userFetcher = _userFetcher.asStateFlow()
 
     fun getUserInformation() {
@@ -24,7 +25,7 @@ class UserViewModel(
         val username = "castelles"
         viewModelScope.launch {
             repository.getNotAuthenticatedUser(username).collect {
-                _userFetcher.value = _userFetcher.value.copy(it)
+                _userFetcher.safeEmit(State(it))
             }
         }
     }

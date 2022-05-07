@@ -4,6 +4,7 @@ import android.app.Application
 import castelles.com.github.androidbaseproject.module.dataSourceModules
 import castelles.com.github.androidbaseproject.module.repositoryModules
 import castelles.com.github.androidbaseproject.module.viewModelModules
+import castelles.com.github.api.di.networkModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -13,7 +14,12 @@ class BaseApp: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@BaseApp)
-            modules(dataSourceModules, repositoryModules, viewModelModules)
+            modules(
+                networkModules,
+                dataSourceModules,
+                repositoryModules,
+                viewModelModules
+            )
         }
     }
 }

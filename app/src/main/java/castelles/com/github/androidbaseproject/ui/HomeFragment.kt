@@ -8,10 +8,8 @@ import androidx.fragment.app.Fragment
 import castelles.com.github.androidbaseproject.databinding.FragmentHomeBinding
 import castelles.com.github.androidbaseproject.viewmodel.UserViewModel
 import castelles.com.github.api.model.UserResponse
-import castelles.com.github.api.utils.Error
 import castelles.com.github.api.utils.ErrorHandler
-import castelles.com.github.api.utils.Loading
-import castelles.com.github.api.utils.Success
+import castelles.com.github.api.utils.NetworkFetcher
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -41,10 +39,10 @@ class HomeFragment: Fragment() {
     private fun bindViewModel() {
         viewModel.apply {
             userFetcher.onEach { state ->
-                when ( val handler = state.handler) {
-                    is Loading -> {}
-                    is Success -> doSomethingWithData(handler.result)
-                    is Error<*> -> doSomethingWithError(handler.error)
+                when ( val handler = state?.handler) {
+                    is NetworkFetcher.Loading -> {}
+                    is NetworkFetcher.Success -> doSomethingWithData(handler.result)
+                    is NetworkFetcher.Error -> doSomethingWithError(handler.error)
                 }
             }.launchIn(MainScope())
         }
@@ -54,7 +52,7 @@ class HomeFragment: Fragment() {
         // TODO ()
     }
 
-    private fun doSomethingWithError(error: ErrorHandler<out Any?>) {
+    private fun doSomethingWithError(error: ErrorHandler) {
         // TODO ()
     }
 

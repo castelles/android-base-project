@@ -2,15 +2,15 @@ package castelles.com.github.gradleconfiguration.libs
 
 object Android: DependencyContainer {
 
-    const val coreKtxVersion = "1.6.0"
-    const val appcompatVersion = "1.3.1"
-    const val materialVersion = "1.4.0"
-    const val constraintLayoutVersion = "2.0.4"
+    private const val coreKtxVersion = "1.5.0"
+    private const val appcompatVersion = "1.3.1"
+    private const val materialVersion = "1.4.0"
+    private const val constraintLayoutVersion = "2.0.4"
 
-    const val coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
-    const val appCompat = "androidx.appcompat:appcompat:$appcompatVersion"
-    const val materialDesign = "com.google.android.material:material:$materialVersion"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    private const val coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
+    private const val appCompat = "androidx.appcompat:appcompat:$appcompatVersion"
+    private const val materialDesign = "com.google.android.material:material:$materialVersion"
+    private const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     override val list: List<String>
         get() = listOf(

@@ -2,18 +2,18 @@ package castelles.com.github.gradleconfiguration.libs
 
 object Network: DependencyContainer {
 
-    const val gsonVersion = "2.8.6"
-    const val loggingVersion = "4.7.2"
-    const val okhttpVersion = "2.7.2"
-    const val retrofitVersion = "2.9.0"
+    private const val gsonVersion = "2.8.6"
+    private const val loggingVersion = "4.7.2"
+    private const val okhttpVersion = "2.7.2"
+    private const val retrofitVersion = "2.9.0"
 
-    const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    const val gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    const val moshiConverter = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    private const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    private const val gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    private const val moshiConverter = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     //    const val scalarsConverter = "com.squareup.retrofit2:converter-scalars:${Versions}"
-    const val gson = "com.google.code.gson:gson:$gsonVersion"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$loggingVersion"
-    const val okHttp = "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    private const val gson = "com.google.code.gson:gson:$gsonVersion"
+    private const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$loggingVersion"
+    private const val okHttp = "com.squareup.okhttp3:okhttp:$okhttpVersion"
 
     override val list: List<String>
         get() = listOf(

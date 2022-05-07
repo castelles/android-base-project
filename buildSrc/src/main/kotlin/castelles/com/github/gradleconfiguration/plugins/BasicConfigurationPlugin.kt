@@ -12,7 +12,7 @@ import castelles.com.github.gradleconfiguration.settings.DimensionFlavors
 import castelles.com.github.gradleconfiguration.settings.ApplicationVersion
 import castelles.com.github.gradleconfiguration.settings.BuildTypes
 
-open class BaseAndroidPlugin: Plugin<Project> {
+open class BasicConfigurationPlugin: Plugin<Project> {
 
     private val proguardFile = "proguard-rules.pro"
     private val kotlinAndroid = "kotlin-android"
@@ -35,8 +35,8 @@ open class BaseAndroidPlugin: Plugin<Project> {
         compileSdkVersion(AndroidSettings.compileSdkVersion)
         buildToolsVersion(AndroidSettings.buildToolsVersion)
         defaultConfig {
-            minSdkVersion(AndroidSettings.minSdkVersion)
-            targetSdkVersion(AndroidSettings.targetSdkVersion)
+            minSdk = AndroidSettings.minSdkVersion
+            targetSdk = AndroidSettings.targetSdkVersion
             versionCode = AndroidSettings.versionCode
             versionName = ApplicationVersion.versionName
 
@@ -44,6 +44,7 @@ open class BaseAndroidPlugin: Plugin<Project> {
             consumerProguardFile(proguardFile)
         }
         dataBinding.isEnabled = true
+//        buildFeatures.compose = true
     }
 
     private fun BaseExtension.applyProguardSettings() {
@@ -64,6 +65,7 @@ open class BaseAndroidPlugin: Plugin<Project> {
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
+
         }
     }
 
@@ -76,7 +78,6 @@ open class BaseAndroidPlugin: Plugin<Project> {
 
     private fun ProductFlavor.createDevFlavor() {
         dimension = DimensionFlavors.dimensionEnv
-        applicationIdSuffix = DimensionFlavors.devAppSuffix
         versionNameSuffix = DimensionFlavors.devVersionNameSuffix
 
         resValue(STRING_LOWER, APP_NAME, "${ApplicationVersion.appName}$versionNameSuffix")
@@ -85,7 +86,7 @@ open class BaseAndroidPlugin: Plugin<Project> {
 
     companion object {
         private const val STRING_LOWER: String = "string"
-        private const val STRING: String = "string"
+        private const val STRING: String = "String"
         private const val APP_NAME: String = "app_name"
         private const val BASE_URL = "BASE_URL"
     }

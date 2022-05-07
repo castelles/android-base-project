@@ -3,8 +3,8 @@ package castelles.com.github.api.utils
 import retrofit2.Response
 import java.nio.charset.Charset
 
-class ErrorHandler<T>(
-    private val response: Response<T>? = null,
+class ErrorHandler(
+    private val response: Response<*>? = null,
     private val exception: Exception? = null
 ) {
 

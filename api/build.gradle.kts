@@ -1,6 +1,7 @@
 import castelles.com.github.gradleconfiguration.extensions.implementationAll
 import castelles.com.github.gradleconfiguration.libs.Network
 import castelles.com.github.gradleconfiguration.libs.Jetpack
+import castelles.com.github.gradleconfiguration.libs.Koin
 
 plugins {
     id("com.android.library")
@@ -18,4 +19,5 @@ android {
 dependencies {
     implementationAll(Network.list)
     implementationAll(Jetpack.list)
+    implementationAll(Koin.list)
 }

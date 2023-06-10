@@ -33,7 +33,8 @@ open class BasicConfigurationPlugin: Plugin<Project> {
 
     private fun BaseExtension.applyAndroidSettings() {
         compileSdkVersion(AndroidSettings.compileSdkVersion)
-        buildToolsVersion(AndroidSettings.buildToolsVersion)
+        namespace = "castelles.com.github.androidbaseproject"
+//        buildToolsVersion(AndroidSettings.buildToolsVersion)
         defaultConfig {
             minSdk = AndroidSettings.minSdkVersion
             targetSdk = AndroidSettings.targetSdkVersion
@@ -43,8 +44,10 @@ open class BasicConfigurationPlugin: Plugin<Project> {
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             consumerProguardFile(proguardFile)
         }
+
         dataBinding.isEnabled = true
-//        buildFeatures.compose = true
+        buildFeatures.compose = true
+        composeOptions.kotlinCompilerExtensionVersion = "1.2.0"
     }
 
     private fun BaseExtension.applyProguardSettings() {
@@ -65,7 +68,6 @@ open class BasicConfigurationPlugin: Plugin<Project> {
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
-
         }
     }
 
@@ -85,10 +87,10 @@ open class BasicConfigurationPlugin: Plugin<Project> {
     }
 
     companion object {
-        private const val STRING_LOWER: String = "string"
-        private const val STRING: String = "String"
-        private const val APP_NAME: String = "app_name"
-        private const val BASE_URL = "BASE_URL"
+        private val STRING_LOWER: String = "string"
+        private val STRING: String = "String"
+        private val APP_NAME: String = "app_name"
+        private val BASE_URL = "BASE_URL"
     }
 
 }

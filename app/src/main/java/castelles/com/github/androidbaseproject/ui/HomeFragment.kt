@@ -13,7 +13,7 @@ import castelles.com.github.api.utils.NetworkFetcher
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment() {
 
@@ -43,6 +43,7 @@ class HomeFragment: Fragment() {
                     is NetworkFetcher.Loading -> {}
                     is NetworkFetcher.Success -> doSomethingWithData(handler.result)
                     is NetworkFetcher.Error -> doSomethingWithError(handler.error)
+                    else -> {}
                 }
             }.launchIn(MainScope())
         }

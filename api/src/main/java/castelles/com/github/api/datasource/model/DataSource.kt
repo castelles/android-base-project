@@ -1,19 +1,13 @@
 package castelles.com.github.api.datasource.model
 
-import castelles.com.github.api.BuildConfig
 import castelles.com.github.api.utils.*
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-
-@KoinApiExtension
-open class DataSource(private val baseUrl: String = BuildConfig.BASE_URL): KoinComponent {
+open class DataSource(private val baseUrl: String = "https://api.github.com/"): KoinComponent {
 
     private val client: OkHttpClient.Builder by inject()
 

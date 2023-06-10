@@ -2,7 +2,7 @@ package castelles.com.github.gradleconfiguration.libs
 
 object Android: DependencyContainer {
 
-    private const val coreKtxVersion = "1.5.0"
+    private const val coreKtxVersion = "1.7.0"
     private const val appcompatVersion = "1.3.1"
     private const val materialVersion = "1.4.0"
     private const val constraintLayoutVersion = "2.0.4"

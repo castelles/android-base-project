@@ -4,8 +4,8 @@ import Build_gradle.InternalDep.navigationPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 object InternalDep {
-    const val kotlinVersion = "1.5.21"
-    private const val buildGradleVersion = "4.2.1"
+    private const val kotlinVersion = "1.7.0"
+    private const val buildGradleVersion = "7.4.1"
     private const val navigationVersion = "2.3.3"
 
     const val buildGradle = "com.android.tools.build:gradle:$buildGradleVersion"

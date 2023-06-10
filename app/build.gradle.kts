@@ -1,6 +1,7 @@
+import castelles.com.github.gradleconfiguration.extensions.androidTestImplementationAll
 import castelles.com.github.gradleconfiguration.extensions.implementationAll
+import castelles.com.github.gradleconfiguration.libs.Compose
 import castelles.com.github.gradleconfiguration.libs.Jetpack
-import castelles.com.github.gradleconfiguration.libs.Koin
 import castelles.com.github.gradleconfiguration.libs.Utils
 
 plugins {
@@ -18,9 +19,10 @@ android {
 
 dependencies {
 
-    implementation (project(":api"))
+    implementation(project(":api"))
+    implementation(project(":designsystem"))
     implementationAll(Jetpack.list)
-    implementationAll(Koin.list)
     implementationAll(Utils.list)
-
+    androidTestImplementationAll(Compose.AndroidTest.list)
+    androidTestImplementationAll(castelles.com.github.gradleconfiguration.libs.Test.AndroidTest.list)
 }

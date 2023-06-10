@@ -11,13 +11,14 @@ plugins {
 }
 
 android {
+    namespace = "castelles.com.github.androidbaseproject.api"
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
     implementationAll(Network.list)
     implementationAll(Jetpack.list)
-    implementationAll(Koin.list)
 }

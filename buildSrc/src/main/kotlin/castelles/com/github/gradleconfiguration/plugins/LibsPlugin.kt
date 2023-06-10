@@ -17,8 +17,7 @@ class LibsPlugin: BasicConfigurationPlugin() {
             implementationAll(Android.list)
             implementationAll(Rx.list)
             testImplementationAll(Test.list)
-            androidTestImplementationAll(Test.AndroidTest.list)
-            debugImplementationAll(Test.Debug.list)
+            implementationAll(Koin.list)
         }
     }
 

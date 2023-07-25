@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import castelles.com.github.androidbaseproject.databinding.FragmentHomeBinding
+import castelles.com.github.androidbaseproject.ui.screen.HomeScreen
 import castelles.com.github.androidbaseproject.viewmodel.UserViewModel
 import castelles.com.github.api.model.UserResponse
 import castelles.com.github.api.utils.ErrorHandler
@@ -17,18 +18,16 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
     private val viewModel: UserViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = with(FragmentHomeBinding.inflate(inflater)) {
-        lifecycleOwner = viewLifecycleOwner
-        binding = this
-        viewModel = this@HomeFragment.viewModel
-        root
+    ) = ComposeView(requireContext()).apply {
+        setContent {
+            HomeScreen(viewModel)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

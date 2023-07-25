@@ -1,5 +1,6 @@
 import castelles.com.github.gradleconfiguration.extensions.implementationAll
 import castelles.com.github.gradleconfiguration.libs.Compose
+import castelles.com.github.gradleconfiguration.extensions.debugImplementationAll
 
 plugins {
     id("com.android.library")
@@ -17,4 +18,5 @@ android {
 
 dependencies {
     implementationAll(Compose.list)
+    debugImplementationAll(Compose.Debug.list)
 }

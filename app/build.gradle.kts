@@ -1,4 +1,5 @@
 import castelles.com.github.gradleconfiguration.extensions.androidTestImplementationAll
+import castelles.com.github.gradleconfiguration.extensions.debugImplementationAll
 import castelles.com.github.gradleconfiguration.extensions.implementationAll
 import castelles.com.github.gradleconfiguration.libs.Compose
 import castelles.com.github.gradleconfiguration.libs.Jetpack
@@ -18,11 +19,11 @@ android {
 }
 
 dependencies {
-
     implementation(project(":api"))
     implementation(project(":designsystem"))
     implementationAll(Jetpack.list)
     implementationAll(Utils.list)
+    debugImplementationAll(Compose.Debug.list)
     androidTestImplementationAll(Compose.AndroidTest.list)
     androidTestImplementationAll(castelles.com.github.gradleconfiguration.libs.Test.AndroidTest.list)
 }
